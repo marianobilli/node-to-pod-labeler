@@ -1,0 +1,33 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: node-to-pod-labeler
+  namespace: tools
+  labels:
+    app: node-to-pod-labeler
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: node-to-pod-labeler
+  template:
+    metadata:
+      labels:
+        app: node-to-pod-labeler
+    spec:
+      containers:
+        - name: node-to-pod-labeler
+          image: ghcr.io/marianobilli/node-to-pod-labeler:latest
+          imagePullPolicy: Always
+          resources:
+            requests:
+              cpu: 100m
+              memory: 100Mi
+          env:
+            - name: LOG_LEVEL
+              value: INFO
+            - name: LABELS
+              value: node.kubernetes.io/instance-type,eks.amazonaws.com/capacityType
+            - name: EXCLUDED_NAMESPACES
+              value: kube-system,tools,prometheus,vault,flux-system,ingress-controllers,jenkins,jenkins-operator
+      serviceAccountName: node-to-pod-labeler

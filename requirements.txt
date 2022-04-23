@@ -1,0 +1,2 @@
+kubernetes==23.3.0
+jsonpatch==1.32

@@ -14,5 +14,5 @@ The inspiration for this was to develop a cost report that could work toghether 
 [empathyco-container](https://github.com/empathyco/kubernetes-cost-report) would extract price per instance type, and later a prometheus rule would join metrics using node.kubernetes.io/instance-type and eks.amazonaws.com/capacityType.
 
 # Next steps
-- Configure kube-state-metrics to expose these labels in the metrics using [this](https://marianobilli.github.io/log/kubernetes/kube-state-metrics/labels.html)
+- Configure kube-state-metrics to expose these labels in the metrics using [--metric-labels-allowlist argument](https://github.com/kubernetes/kube-state-metrics/blob/master/docs/cli-arguments.md)
 - Build a prometheus rule to join `empathyco  instance_cost metric` using these labels

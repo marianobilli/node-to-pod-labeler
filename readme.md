@@ -15,4 +15,4 @@ The inspiration for this was to develop a cost report that could work toghether 
 
 # Next steps
 - Configure kube-state-metrics to expose these labels in the metrics using [--metric-labels-allowlist argument](https://github.com/kubernetes/kube-state-metrics/blob/master/docs/cli-arguments.md)
-- Build a prometheus rule to join `empathyco  instance_cost metric` using these labels
+- Build a prometheus rule to join `empathyco  instance_cost metric` using these new labels on the pod metrics

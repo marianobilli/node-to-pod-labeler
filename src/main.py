@@ -66,8 +66,6 @@ KUBE_API = client.CoreV1Api()
 KUBE_WATCH = watch.Watch()
 LABELS = getenv("LABELS", "").split(",")
 EXCLUDED_NAMESPACES = getenv("EXCLUDED_NAMESPACES", "").split(",")
-SLEEP_DURATION = int(getenv("SLEEP", "10"))
-
 
 # initial processing of all pods
 logging.info("---- initial processing of pods ----")
